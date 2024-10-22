@@ -24,24 +24,6 @@
  *                  description: Data blog tidak ditemukan.
  *              '500':
  *                  description: Server tidak merespon.
- *  /blog/{id}:
- *      get:
- *          tags: [Blog]
- *          summary: Menampilkan data blog berdasarkan ID.
- *          description: Menampilkan data blog berdasarkan ID.
- *          parameters:
- *              -   in: path
- *                  name: id
- *                  type: integer
- *                  required: true
- *                  description: ID dari blog yang ingin ditampilkan.
- *          responses:
- *                  '200':
- *                      description: Respon sukses menampilkan data.
- *                  '404':
- *                      description: Data blog tidak ditemukan.
- *                  '500':
- *                      description: Server tidak merespon.
  *      post:
  *          tags: [Blog]
  *          summary: menambahkan data blog.
@@ -64,6 +46,24 @@
  *          responses:
  *                  '200':
  *                      description: Respon sukses menambahkan data.
+ *                  '404':
+ *                      description: Data blog tidak ditemukan.
+ *                  '500':
+ *                      description: Server tidak merespon.
+ *  /blog/{id}:
+ *      get:
+ *          tags: [Blog]
+ *          summary: Menampilkan data blog berdasarkan ID.
+ *          description: Menampilkan data blog berdasarkan ID.
+ *          parameters:
+ *              -   in: path
+ *                  name: id
+ *                  type: integer
+ *                  required: true
+ *                  description: ID dari blog yang ingin ditampilkan.
+ *          responses:
+ *                  '200':
+ *                      description: Respon sukses menampilkan data.
  *                  '404':
  *                      description: Data blog tidak ditemukan.
  *                  '500':
