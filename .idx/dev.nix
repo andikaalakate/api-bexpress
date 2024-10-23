@@ -9,7 +9,7 @@
     pkgs.openssl.dev
   ];
   services.mysql = {
-    enable = true;
+    enable = false;
     package = pkgs.mariadb;
   };
   # Sets environment variables in the workspace

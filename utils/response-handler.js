@@ -1,8 +1,10 @@
-const responseData = function (response, statusCode, values) {
+const responseData = function (response, statusCode, values, info, pagination) {
     var data = {
         success: true,
         statusCode: statusCode,
         data: values,
+        paginationInfo: info,
+        pagination: pagination,
     };
     response.status(statusCode).json(data);
     response.end();

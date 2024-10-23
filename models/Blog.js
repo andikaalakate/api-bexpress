@@ -23,13 +23,24 @@ exports.getBlogs = async (response, limit, offset) => {
         });
 
         const totalPages = Math.ceil(totalData / limit);
-        responseData(response, 200, {
-            blogs: blogs,
-            dataPerPage: limit,
-            totalData: totalData,
-            totalPages: totalPages,
-            currentPage: offset / limit + 1
-        });
+        responseData(response, 200, blogs,
+            {
+                dataPerPage: limit,
+                totalData,
+                totalPages
+            },
+            {
+                currentPage: offset / limit + 1,
+                nextPages: {
+                    page: offset + limit < totalData ? offset + limit + 1 : null,
+                    url: offset + limit < totalData ? `/v1/blog?page=${offset + limit + 1}&limit=${limit}` : null
+                },
+                prevPages: {
+                    page: offset - limit >= 0 ? offset - limit + 1 : null,
+                    url: offset - limit >= 0 ? `/v1/blog?page=${offset - limit + 1}&limit=${limit}` : null
+                },
+            }
+        );
     } catch (err) {
         response.status(500).json({ message: 'Ada kesalahan saat mengambil data', error: err });
     }
